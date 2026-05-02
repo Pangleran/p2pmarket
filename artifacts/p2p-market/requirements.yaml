@@ -1,0 +1,18 @@
+packages:
+  "framer-motion": "For premium entry animations and micro-interactions"
+  "zustand": "For lightweight auth and global state management"
+  "date-fns": "For formatting transaction and listing dates"
+  "@hookform/resolvers": "For Zod form validation"
+  "react-hook-form": "For robust form state management"
+
+images:
+  - path: "artifacts/p2p-market/public/images/hero-bg.png"
+    description: "Modern dark abstract gradient background with glowing bright blue and cyan tech lines, high contrast, sleek professional esports vibe"
+    aspect_ratio: "16:9"
+  - path: "artifacts/p2p-market/public/images/logo.png"
+    description: "Minimalist modern geometric icon representing secure P2P game trading, bright blue and white on transparent background"
+    aspect_ratio: "1:1"
+
+notes:
+  - "Assuming customFetch or the backend handles CORS and respects the X-Auth-Token header."
+  - "Orval generated API hooks are imported from @workspace/api-client-react."

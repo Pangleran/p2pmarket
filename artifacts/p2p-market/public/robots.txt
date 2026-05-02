@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+
+# Halaman yang tidak perlu diindex
+Disallow: /dashboard
+Disallow: /topup
+Disallow: /withdraw
+Disallow: /transactions
+Disallow: /transaction/
+Disallow: /profile
+Disallow: /logs
+Disallow: /market/new
+
+# Sitemap
+Sitemap: https://p2pmarket.web.id/sitemap.xml

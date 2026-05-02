@@ -1,0 +1,263 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+@import "tw-animate-css";
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme inline {
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+  --font-display: 'Outfit', sans-serif;
+
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+}
+
+:root {
+  --background: 210 33% 99%;
+  --foreground: 222 47% 11%;
+  --card: 0 0% 100%;
+  --card-foreground: 222 47% 11%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 222 47% 11%;
+  --primary: 221 83% 53%;
+  --primary-foreground: 210 40% 98%;
+  --secondary: 215 25% 27%;
+  --secondary-foreground: 210 40% 98%;
+  --muted: 214 32% 91%;
+  --muted-foreground: 215 16% 47%;
+  --accent: 199 89% 48%;
+  --accent-foreground: 210 40% 98%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 214 32% 91%;
+  --input: 214 32% 91%;
+  --ring: 221 83% 53%;
+  --radius: 0.75rem;
+}
+
+.dark {
+  --background: 222 47% 7%;      /* #070D1A very dark navy */
+  --foreground: 210 40% 94%;     /* #E8EEF7 near white */
+  --card: 222 40% 12%;           /* #111827 dark navy card */
+  --card-foreground: 210 40% 94%;
+  --popover: 222 40% 12%;
+  --popover-foreground: 210 40% 94%;
+  --primary: 217 91% 60%;        /* #3B82F6 blue-500 slightly brighter */
+  --primary-foreground: 222 47% 7%;
+  --secondary: 210 40% 80%;      /* #C7D7EE light blue-gray for headings */
+  --secondary-foreground: 222 47% 7%;
+  --muted: 222 35% 18%;          /* #1E2D45 dark muted */
+  --muted-foreground: 215 20% 60%; /* #8EA3BA slate-400 */
+  --accent: 199 89% 52%;
+  --accent-foreground: 222 47% 7%;
+  --destructive: 0 72% 51%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 222 35% 18%;         /* #1E2D45 */
+  --input: 222 35% 18%;
+  --ring: 217 91% 60%;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground antialiased font-sans selection:bg-primary/20 selection:text-primary;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-bold tracking-tight text-foreground;
+  }
+}
+
+/* ─── Global dark-mode overrides for hardcoded Tailwind colors ─── */
+
+/* Neutral backgrounds */
+.dark .bg-white { background-color: hsl(222 40% 12%); }
+.dark .bg-white\/80 { background-color: hsl(222 40% 12% / 0.85); }
+.dark .bg-white\/90 { background-color: hsl(222 40% 12% / 0.92); }
+.dark .bg-white\/70 { background-color: hsl(222 40% 12% / 0.75); }
+.dark .bg-slate-50 { background-color: hsl(222 40% 10%); }
+.dark .bg-slate-100 { background-color: hsl(222 38% 16%); }
+.dark .bg-slate-200 { background-color: hsl(222 35% 20%); }
+
+/* Colored backgrounds → subtle dark variants */
+.dark .bg-blue-50 { background-color: hsl(217 50% 14%); }
+.dark .bg-indigo-50 { background-color: hsl(226 50% 14%); }
+.dark .bg-violet-50 { background-color: hsl(258 50% 14%); }
+.dark .bg-purple-50 { background-color: hsl(270 50% 14%); }
+.dark .bg-emerald-50 { background-color: hsl(160 40% 12%); }
+.dark .bg-green-50 { background-color: hsl(145 40% 12%); }
+.dark .bg-teal-50 { background-color: hsl(170 40% 12%); }
+.dark .bg-amber-50 { background-color: hsl(38 40% 13%); }
+.dark .bg-yellow-50 { background-color: hsl(48 40% 13%); }
+.dark .bg-orange-50 { background-color: hsl(25 40% 13%); }
+.dark .bg-red-50 { background-color: hsl(0 40% 14%); }
+.dark .bg-rose-50 { background-color: hsl(350 40% 14%); }
+.dark .bg-sky-50 { background-color: hsl(200 50% 14%); }
+.dark .bg-cyan-50 { background-color: hsl(185 50% 12%); }
+
+/* Colored borders → muted dark variants */
+.dark .border-slate-100 { border-color: hsl(222 35% 18%); }
+.dark .border-slate-200 { border-color: hsl(222 33% 22%); }
+.dark .border-blue-100 { border-color: hsl(217 40% 22%); }
+.dark .border-blue-200 { border-color: hsl(217 35% 28%); }
+.dark .border-indigo-100 { border-color: hsl(226 40% 22%); }
+.dark .border-violet-100 { border-color: hsl(258 35% 22%); }
+.dark .border-emerald-100 { border-color: hsl(160 30% 20%); }
+.dark .border-emerald-200 { border-color: hsl(160 28% 25%); }
+.dark .border-green-100 { border-color: hsl(145 30% 20%); }
+.dark .border-amber-100 { border-color: hsl(38 35% 22%); }
+.dark .border-amber-200 { border-color: hsl(38 30% 28%); }
+.dark .border-orange-100 { border-color: hsl(25 35% 22%); }
+.dark .border-red-100 { border-color: hsl(0 30% 22%); }
+.dark .border-red-200 { border-color: hsl(0 28% 28%); }
+.dark .border-rose-100 { border-color: hsl(350 30% 22%); }
+
+/* Colored text → brighter in dark mode */
+.dark .text-slate-900 { color: hsl(210 40% 94%); }
+.dark .text-slate-800 { color: hsl(210 40% 88%); }
+.dark .text-slate-700 { color: hsl(210 30% 78%); }
+.dark .text-slate-600 { color: hsl(215 20% 68%); }
+.dark .text-slate-500 { color: hsl(215 20% 58%); }
+.dark .text-slate-400 { color: hsl(215 18% 50%); }
+.dark .text-slate-300 { color: hsl(215 16% 42%); }
+.dark .text-blue-800 { color: hsl(217 80% 72%); }
+.dark .text-blue-700 { color: hsl(217 75% 68%); }
+.dark .text-indigo-800 { color: hsl(226 75% 72%); }
+.dark .text-violet-800 { color: hsl(258 70% 75%); }
+.dark .text-violet-700 { color: hsl(258 65% 70%); }
+.dark .text-emerald-800 { color: hsl(160 60% 65%); }
+.dark .text-emerald-700 { color: hsl(160 55% 60%); }
+.dark .text-amber-800 { color: hsl(38 80% 68%); }
+.dark .text-amber-700 { color: hsl(38 75% 62%); }
+.dark .text-orange-800 { color: hsl(25 80% 68%); }
+.dark .text-red-800 { color: hsl(0 70% 70%); }
+.dark .text-red-700 { color: hsl(0 65% 65%); }
+
+/* Gradient from/to overrides for colored-50 shades */
+.dark .from-blue-50 { --tw-gradient-from: hsl(217 50% 14%); }
+.dark .from-indigo-50 { --tw-gradient-from: hsl(226 50% 14%); }
+.dark .from-violet-50 { --tw-gradient-from: hsl(258 50% 14%); }
+.dark .from-emerald-50 { --tw-gradient-from: hsl(160 40% 12%); }
+.dark .from-teal-50 { --tw-gradient-from: hsl(170 40% 12%); }
+.dark .from-amber-50 { --tw-gradient-from: hsl(38 40% 13%); }
+.dark .from-rose-50 { --tw-gradient-from: hsl(350 40% 14%); }
+.dark .from-sky-50 { --tw-gradient-from: hsl(200 50% 14%); }
+.dark .from-slate-50 { --tw-gradient-from: hsl(222 40% 10%); }
+.dark .to-indigo-50 { --tw-gradient-to: hsl(226 50% 14%); }
+.dark .to-blue-50 { --tw-gradient-to: hsl(217 50% 14%); }
+.dark .to-teal-50 { --tw-gradient-to: hsl(170 40% 12%); }
+.dark .to-purple-50 { --tw-gradient-to: hsl(270 50% 14%); }
+.dark .to-orange-50 { --tw-gradient-to: hsl(25 40% 13%); }
+.dark .to-pink-50 { --tw-gradient-to: hsl(330 40% 14%); }
+
+/* Hover states */
+.dark .hover\:bg-slate-50:hover { background-color: hsl(222 40% 16%); }
+.dark .hover\:bg-slate-100:hover { background-color: hsl(222 38% 20%); }
+.dark .hover\:bg-slate-200:hover { background-color: hsl(222 35% 24%); }
+
+/* Dividers */
+.dark .divide-slate-100 > * + * { border-color: hsl(222 35% 18%); }
+.dark .divide-slate-200 > * + * { border-color: hsl(222 33% 22%); }
+
+/* Inputs and cards in dark */
+.dark input,
+.dark textarea,
+.dark select {
+  background-color: hsl(222 38% 16%);
+  color: hsl(210 40% 94%);
+  border-color: hsl(222 33% 22%);
+}
+.dark input::placeholder,
+.dark textarea::placeholder {
+  color: hsl(215 18% 45%);
+}
+
+/* Glass card dark adjustment */
+.dark .glass-card {
+  @apply bg-card/80 border-white/5;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-lg shadow-black/5;
+  }
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent;
+  }
+}
+
+/* ─── Owner Gradient Shimmer Animation ─────────────────────────────────────── */
+@keyframes owner-shimmer {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.owner-gradient-text {
+  background: linear-gradient(
+    270deg,
+    #a855f7,
+    #ec4899,
+    #f59e0b,
+    #06b6d4,
+    #a855f7
+  );
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: owner-shimmer 3s ease infinite;
+}
+
+.owner-gradient-badge {
+  background: linear-gradient(
+    270deg,
+    rgba(168, 85, 247, 0.1),
+    rgba(236, 72, 153, 0.1),
+    rgba(245, 158, 11, 0.1),
+    rgba(6, 182, 212, 0.1),
+    rgba(168, 85, 247, 0.1)
+  );
+  background-size: 300% 300%;
+  animation: owner-shimmer 3s ease infinite;
+}
+
+.owner-gradient-border {
+  border-image: linear-gradient(
+    270deg,
+    #a855f7,
+    #ec4899,
+    #f59e0b,
+    #06b6d4,
+    #a855f7
+  ) 1;
+  background-size: 300% 300%;
+  animation: owner-shimmer 3s ease infinite;
+}
